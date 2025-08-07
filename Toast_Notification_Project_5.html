@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toast Notification</title>
+    <!-- Bootstrap Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Parent Div -->
+    <div id="Parent_Div" class="d-flex flex-row justify-content-center p-5">
+        <!-- Child Div -->
+        <div id="Child_Div">
+            <!-- Project Heading -->
+            <h1 class="text-center font-monospace">Toast Notification</h1>
+            <!-- Buttons -->
+            <button id="Submit_Btn" class=" btn btn-success">Submit</button>
+            <button id="Failed_Btn" class="btn btn-danger">Failed</button>
+            <button id="Info_Btn" class="btn btn-info">Information</button>
+            <button id="Warning_Btn" class="btn btn-warning">Warning</button>
+        </div>
+    </div>
+
+    <!-- Script for Notifications -->
+    <script>
+        document.querySelector('#Child_Div').addEventListener('click',(e)=>{
+            if (e.target.id=="Submit_Btn") {
+           const toastHTML = `
+                    <div class="toast show align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                        <div class="toast-body">
+                            Successfully submitted!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    `;
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "toast-container position-fixed top-0 end-0 p-3";
+                wrapper.innerHTML = toastHTML;
+
+                document.getElementById("Child_Div").appendChild(wrapper);
+            }
+            else if (e.target.id=="Failed_Btn") {
+                   const toastHTML = `
+                    <div class="toast show align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                        <div class="toast-body">
+                            Failed to submitt!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    `;
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "toast-container position-fixed top-0 end-0 p-3";
+                wrapper.innerHTML = toastHTML;
+
+                document.getElementById("Child_Div").appendChild(wrapper);
+            }  
+            else if (e.target.id=="Info_Btn") {
+                const toastHTML = `
+                    <div class="toast show align-items-center text-bg-info border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                        <div class="toast-body">
+                            Info not Submitted!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    `;
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "toast-container position-fixed top-0 end-0 p-3";
+                wrapper.innerHTML = toastHTML;
+
+                document.getElementById("Child_Div").appendChild(wrapper);
+            } 
+            else if(e.target.id=="Warning_Btn"){
+               const toastHTML = `
+                    <div class="toast show align-items-center text-bg-warning border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                        <div class="toast-body">
+                            Warning!
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    `;
+
+                const wrapper = document.createElement("div");
+                wrapper.className = "toast-container position-fixed top-0 end-0 p-3";
+                wrapper.innerHTML = toastHTML;
+
+                document.getElementById("Child_Div").appendChild(wrapper);
+            }
+        })
+    </script>
+</body>
+</html>

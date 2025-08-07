@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator_Project#2</title>
+    <!-- Adding Some Styling -->
+    <style>
+        body{
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        #Wrapper{
+            /* border: 2px solid black; */
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #Wrapper-Inner{
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 20px;
+        }
+   
+    </style>
+</head>
+<body>
+    <!-- HTML -->
+    <!-- The Body Mass Index (BMI) is calculated by dividing a person's weight in kilograms by the square of their height in meters
+    
+    Formula to calculate BMI is:
+    BMI = kg/m^2  -->
+
+    <!-- Adding Input Tags -->
+   
+    <h1 style="text-align: center;">BMI Calculator</h1>
+    
+    <div id="Wrapper">
+        <div id="Wrapper-Inner">
+            <!-- For Weight -->
+            <h2>Enter Your Weight</h2>
+            <input type="text" name="" id="Weight" placeholder="Enter Your Weight">
+            <p>Your Weight is: <span id="Weight_Result"></span>kg</p>
+            <!-- For Height -->
+            <h2>Enter Your Height</h2>
+                <div id="Height">
+                    <input type="number" name="" id="Foot" placeholder="Enter Foot">
+                    <p>Your Height in Foots are: <span id="Height_In_Foots"></span>foot</p>
+                    <input type="number" name="" id="Inches" placeholder="Enter Inches">
+                    <p>Your Height in Inches are: <span id="Height_In_Inches"></span>Inches</p>
+                    <p>Your Height is:<span id="Total_Height"></span></p>
+                    <p>Your Height in Centimeters are: <span id="Resultincm"></span></p>
+                    <p>Your Height in Meters are: <span id="ResultinMeters"></span></p>
+                    <p>Your BMI is: <span id="BMI_Result"></span></p>
+                </div>
+           
+        </div>
+    </div>
+
+    <!-- Adding Script -->
+    <script>
+    // Script for input element-Weight
+    document.getElementById("Weight").addEventListener('input',function name(e) {
+        const weight =  Taking_Weight();  
+        console.log("Weight is:",weight);
+    });
+
+    function Taking_Weight() {
+        const  save_weight =  document.getElementById("Weight").value; 
+        document.getElementById("Weight_Result").innerHTML = save_weight;
+        return parseFloat(save_weight);
+    }
+    
+    // Script for Height & BMI Calculation
+
+    // getElementById().value returns a string so we have to convert it into numbers
+    document.getElementById("Height").addEventListener('input',function (e){
+            const a = For_Height_in_Foot();
+            const b = For_Height_in_Inches();
+            const c = Taking_Weight();
+            console.log("C is:",c);
+            
+            document.getElementById("Total_Height").innerHTML= a +"'"+b;
+            console.log(a);
+            console.log(b);
+
+            // Formula to Convert Feet and Inches to : cm = (feet * 12 + inches) * 2.54;
+            const cm = (a * 12 + b) * 2.54;
+            document.getElementById("Resultincm").innerHTML = cm;
+
+            // Formula to Convert cm to m : Meters= cm/100
+            const m = cm/100;
+            document.getElementById("ResultinMeters").innerHTML = m;
+
+            const BMI = c/m**2;
+            document.getElementById("BMI_Result").innerHTML = BMI;
+
+
+    });
+
+    // For Taking Height in Foot
+    function For_Height_in_Foot(){
+      const  save_value =  document.getElementById("Foot").value; 
+      document.getElementById("Height_In_Foots").innerHTML = save_value;
+       return parseFloat(save_value);  
+    }
+    //For Taking Height in Inches
+    function For_Height_in_Inches(){
+      const  save_value =  document.getElementById("Inches").value; 
+      document.getElementById("Height_In_Inches").innerHTML = save_value;
+       return parseFloat(save_value);  
+    }
+
+        
+    
+        
+    </script>
+</body>
+</html>

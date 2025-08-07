@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Statistics</title>
+    <style>
+        #Parent{
+            display: flex;
+            font-size: x-large;
+            font-family: monospace;
+            padding: 2rem;
+            justify-content: space-around;
+            border: 0.5px solid black;
+        }
+        #Heading{
+            text-align: center;
+            font-size: x-large;
+            font-family: monospace;
+        }
+        #Child_1{
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border: 0.5px solid black;
+        }
+        #Child_2{
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border: 0.5px solid black;
+        }
+        #Child_3{
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border: 0.5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+     <h1 id="Heading">Profile Statistics</h1>
+    <div id="Parent">
+        <!-- Child#1 -->
+        <!-- Years of Experience  -->
+        <div id="Child_1">
+            <div id="Experience_Counter">
+                <p>Months of Experience: <span id="Years"></span>+</p>
+            </div>
+            <div id="Experience_Counter_Content">
+                <span id="Text_for_Years">Years of Experience</span>
+            </div>
+        </div>
+        <!-- Child#2 -->
+        <!--  Projects in JS Completed -->
+        <div id="Child_2">
+            <div id="Projects_Completed_Counter_JS">
+                <p><span id="Completed_Projects_JS"></span>+</p>
+            </div>
+            <div id="JS_Content">
+                <span id="Text_for_Years">Projects Completed in JS</span>
+            </div>
+        </div>
+        <!-- Child#3 -->
+        <!-- Projects Completed in React -->
+        <div id="Child_3">
+            <div id="Projects_Completed_Counter_React">
+                <p><span id="Completed_Projects_React"></span>+</p>
+            </div>
+            <div id="React_Content">
+                <span id="Text_for_Years">Projects Completed in React</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            let year = 0;
+            const maxYears = 7;
+
+            const Experience = setInterval(() => {
+                document.getElementById("Years").innerText = year;
+                year++;
+                if (year > maxYears) {
+                    clearInterval(Experience); 
+                }
+            }, 1000); // 1 second interval
+
+            let Projects_Completed_JS = 0;
+            const max_projects_in_js = 12;
+            const Projects_Completed_In_JS = setInterval(() => {
+                document.getElementById("Completed_Projects_JS").innerText = Projects_Completed_JS;
+                Projects_Completed_JS++;
+                if (Projects_Completed_JS > max_projects_in_js) {
+                    clearInterval(Projects_Completed_In_JS); 
+                }
+            }, 1000); // 1 second interval
+
+            let Projects_Completed_React = 0;
+            const max_projects_in_react = 2;
+            const Projects_Completed_In_react = setInterval(() => {
+                document.getElementById("Completed_Projects_React").innerText = Projects_Completed_React;
+                Projects_Completed_React++;
+                if (Projects_Completed_React > max_projects_in_react) {
+                    clearInterval(Projects_Completed_In_react); 
+                }
+            }, 1000); // 1 second interval
+        }
+    </script>
+</body>
+</html>

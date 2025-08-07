@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <!-- Styling -->
+    <style>
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: center;
+            font-family: monospace;
+        }
+        #Child_1{
+           width: 50%;
+           text-align: center;
+           padding: 20px;
+           margin-bottom: 2px;
+        }
+        #Calculate_Total_Bill{
+            background-color: green;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        #Child_2{
+            padding: 20px;
+            font-size:larger;
+        }
+        #Total_Amount{
+            padding: 10px;
+            width: 50%;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Tip Calculator</h1>
+        <!-- Child -->
+        <div id="Child_1">
+            <!-- input type -- number (for total bill amount) -->
+            <input type="number" name="" id="Total_Amount" placeholder="Enter the Total Bill">
+            <!-- Button for Submitting total bill amount -->
+            <button id="Calculate_Total_Bill">Calculate Tip</button>
+        </div>
+        <!-- Child-2 for Displaying Tip -->
+        <div id="Child_2">
+            <p>Your Tip Amount is: <span id="Tip_Amount"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#Parent').addEventListener('click',(e)=>{
+            const amount = document.getElementById("Total_Amount").value;
+            // Tip Percentage is: 15% which is equal to 0.15
+            const total_tip = amount * 0.15;
+            document.getElementById("Tip_Amount").innerText = total_tip;
+            
+        
+            
+        })
+        
+        //when we refresh value is removed from the input field
+        window.onload = function () { 
+                document.getElementById("Total_Amount").value = ""; 
+        }
+   
+    </script>
+</body>
+</html>

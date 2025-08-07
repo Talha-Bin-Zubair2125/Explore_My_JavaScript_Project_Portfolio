@@ -1,0 +1,146 @@
+<!-- 
+
+Project Description
+
+1. “Select All the Boxes” Interaction Project
+Create a grid of clickable boxes.
+
+Use DOM selection, event listeners (e.target), and CSS classes to let users visually toggle boxes—demonstrates handling browser events and dynamic styling. 
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker Project#1</title>
+</head>
+    <!-- Adding some styling -->
+    <style>
+        body{
+            box-sizing: border-box;
+            font-family:monospace;
+            font-size: 30px;
+        }
+        /* First Button */
+        #Grey_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: gray;
+        }
+        /* Second Button */
+        #Yellow_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: yellow;
+        }
+        /* Third Button */
+        #Red_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: red;
+        }
+        /* Fouth Button */
+        #Black_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: black;
+            color: white;
+        }
+        #Pink_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color:pink;
+            color: white;
+        }
+        #Green_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: green;
+            color: white;
+        }
+        #Purple_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: purple;
+            color: white;
+        }
+        #Light_Green_Btn{
+            padding: 10px;
+            font-family:monospace;
+            background-color: lightgreen;
+            color: white;
+        }
+    </style>
+<body id="Color_Change">
+    <!-- Selected Color -->
+    <p id="selected_color"></p>
+    <div class="buttons">
+        <!-- Create Buttons Using Input tag -->
+        <!-- Method_1 Buttons  -->
+        <input type="button" value="Pink Button" id="Pink_Btn">
+        <input type="button" value="Green Button" id="Green_Btn">
+        <input type="button" value="Purple Button" id="Purple_Btn">
+        <input type="button" value="Light Green Button" id="Light_Green_Btn">
+        <!-- Method_2 Buttons -->
+        <input type="button" value="Grey Button" id="Grey_Btn">
+        <input type="button" value="Yellow Button" id="Yellow_Btn">
+        <input type="button" value="Red Button" id="Red_Btn">
+        <input type="button" value="Black Button" id="Black_Btn">
+    </div>
+
+    <!-- Script -->
+    <script>
+
+        //Method#1
+
+        // Applying Script on Btn_1
+        document.getElementById("Pink_Btn").addEventListener('click',function name(event) {
+            const result =  event.target.parentNode.parentNode.style.backgroundColor="pink";
+            document.getElementById("selected_color").innerHTML=result;
+        });
+        // Applying Script on Btn_2
+        document.getElementById("Green_Btn").addEventListener('click',function name(event) {
+            const result =  event.target.parentNode.parentNode.style.backgroundColor="green";
+            document.getElementById("selected_color").innerHTML=result;
+        });
+        // Applying  Script on Btn_3
+        document.getElementById("Purple_Btn").addEventListener('click',function name(event) {
+            const result =  event.target.parentNode.parentNode.style.backgroundColor="purple";
+            document.getElementById("selected_color").innerHTML=result;        
+        });
+        // Applying  Script on Btn_4
+        document.getElementById("Light_Green_Btn").addEventListener('click',function name(event) {
+            const result =  event.target.parentNode.parentNode.style.backgroundColor="lightgreen";
+            document.getElementById("selected_color").innerHTML=result;
+        });
+
+        //Method#2
+        
+        const result = document.querySelector('.buttons').addEventListener('click',function name(event) {
+            if(event.target.id == "Grey_Btn") {
+                const result = event.target.parentNode.parentNode.style.backgroundColor="grey";
+                document.getElementById("selected_color").innerHTML=result;
+            }
+            else if (event.target.id == "Yellow_Btn") {
+                const result = event.target.parentNode.parentNode.style.backgroundColor="yellow";
+                document.getElementById("selected_color").innerHTML=result;
+            }
+            else if(event.target.id == "Red_Btn"){
+                const result = event.target.parentNode.parentNode.style.backgroundColor="red";
+                document.getElementById("selected_color").innerHTML=result;
+            }
+            else if(event.target.id == "Black_Btn"){
+                const result = event.target.parentNode.parentNode.style.backgroundColor="black";
+                document.getElementById("selected_color").innerHTML=result;
+                document.getElementById("selected_color").style.color="white";
+            }
+        });
+        console.log(result);
+        
+    </script>
+</body>
+</html>

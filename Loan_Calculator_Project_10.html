@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <!-- Styling -->
+    <style>
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            font-family: monospace;
+            font-size: larger;
+            padding: 2rem;
+            text-align: center;
+        }
+        #Child_1{
+            margin-bottom: 1rem;
+        }
+        #Loan_Amount{
+            width: 50%;
+            padding: 0.5rem;
+        }
+        #Child_2{
+            margin-bottom: 1rem;
+        }
+        #Interest_Rate{
+            width: 50%;
+            padding: 0.5rem; 
+        }
+        #Child_3{
+            margin-bottom: 1rem;
+        }
+        #No_of_Months{
+            width: 50%;
+            padding: 0.5rem; 
+        }
+        #Child_4{
+            margin-bottom: 1rem;
+        }
+        #Calculate{
+            padding: 0.5rem;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+        }
+        #Clear{
+            padding: 0.5rem;
+            color: white;
+            background-color: green;
+            font-weight: bold;
+        }
+        #Child_5{
+            margin-bottom: 1rem;  
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Loan Calculator</h1>
+        <!-- Child#1 -->
+        <div id="Child_1">
+            <!-- input-field for (Loan Amount) -->
+            <input type="number" name="" id="Loan_Amount" placeholder="Enter the Loan Amount" onchange="Loan_Amount()">
+            <p>Loan Amount is: <span id="Amount"></span></p>
+        </div>
+        <!-- Child#2 -->
+        <div id="Child_2">
+            <!-- input-field for (Interest Rate) -->
+            <input type="number" name="" id="Interest_Rate" placeholder="Enter the Interest Rate" onchange="Interest_Rate()">
+            <p>Interest Rate is: <span id="Interest"></span>%</p>
+        </div>
+        <!-- Child#3 -->
+        <div id="Child_3">
+            <!-- input field for (Number of Months) -->
+            <input type="number" name="" id="No_of_Months" placeholder="Enter the Months" onchange="No_Of_Months()">
+            <p>No of Months are: <span id="Months"></span></p>
+        </div>
+        <!-- Child#4 -->
+        <div id="Child_4">
+            <!-- Buttons -->
+            <button id="Calculate">Calculate</button>
+            <button id="Clear">Clear</button>
+        </div>
+        <!-- Child#5 -->
+        <div id="Child_5">
+            <!-- For Result -->
+            <p>Monthly Payment is: <span id="Monthly_Payment"></span></p>
+            <p>Total Payment is: <span id="Total_Payment"></span></p>
+        </div>
+    </div>
+
+    <script>
+    
+        // console.log() for debugging
+        const Loan_Amount = () => {
+            const loan_amount = document.getElementById("Loan_Amount").value;
+            document.getElementById("Amount").innerText = loan_amount;
+            return loan_amount;
+        }
+       
+        const Interest_Rate = () =>{
+            const interest_rate = document.getElementById("Interest_Rate").value;
+            document.getElementById("Interest").innerText = interest_rate;
+            return interest_rate;
+        }
+
+        const No_Of_Months = () =>{
+            const no_of_months = document.getElementById("No_of_Months").value;
+            document.getElementById("Months").innerText = no_of_months;
+            return no_of_months;
+        }
+    
+    document.querySelector('#Child_4').addEventListener('click',(e)=>{
+        if (e.target.id == "Calculate") {
+
+            const loan_amount = Loan_Amount();
+            console.log("Amount is:",loan_amount);
+
+            const loan_interest_rate = Interest_Rate();
+            console.log("Interest Rate is:",loan_interest_rate);
+
+            const no_of_months = No_Of_Months();
+            console.log("No of Months are:",no_of_months);
+
+            // Per-Month Payment
+            const monthly_payment =  parseInt( loan_amount * (loan_interest_rate / (1 - Math.pow(1 + loan_interest_rate, -no_of_months))));
+            console.log("Monthly Payment is:", monthly_payment);
+            // Total Payment
+            const total_payment = parseInt( monthly_payment * no_of_months);
+            console.log("Total Amount with Interest is:", Math.round(total_payment));
+
+
+            document.getElementById("Monthly_Payment").innerText = monthly_payment;
+            document.getElementById("Total_Payment").innerText = total_payment;
+               
+        }
+
+        else if(e.target.id == "Clear"){
+            document.getElementById("Loan_Amount").value = ""; 
+            document.getElementById("Interest_Rate").value = ""; 
+            document.getElementById("No_of_Months").value = ""; 
+            
+        }
+    })
+
+    </script>
+</body>
+</html>

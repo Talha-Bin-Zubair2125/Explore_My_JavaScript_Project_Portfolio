@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <!-- Styling -->
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: large; 
+        }
+        #Project_Heading{
+            text-align: center;
+        }
+        #Parent_Div{
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+        #Child_1{
+            padding: 20px;
+            width: 50%;
+        }
+        #Child_2{
+            padding: 20px;
+            width: 50%;
+        }
+        #Child_3{
+            padding: 20px;
+            width: 50%;
+        }
+        input{
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>  
+    <!-- Parent div -->
+    <div id="Parent_Div">
+        <h1 id="Project_Heading">Temperature Converter</h1>
+        <!-- Textfield for Celcius -->
+        <div id="Child_1">
+            <label for="Celcius">
+                Enter Celcius:
+                <input type="number" name="" id="Celcius" placeholder="Enter Temperature">
+            </label>
+        </div>
+        <!-- Textfield for Farenheit -->
+        <div id="Child_2">
+            <label for="Farenheit">
+                Enter Farenheit:
+                <input type="number" name="" id="Farenheit" placeholder="Enter Temperature">
+            </label>
+        </div>
+        <!-- Textfield for Kelvin -->
+        <div id="Child_3">
+            <label for="Kelvin">
+                Enter Kelvin:
+                <input type="number" name="" id="Kelvin" placeholder="Enter Temperature">
+            </label>
+        </div>
+    </div>
+
+    <p><b>Description</b></p>
+    <p><b>if we add value in celcuis input field it will display equivalent value in Farenheit and Kelvin</b></p>
+    <p><b>if we add value in Farenheit input field it will display equivalent value in celcuis and Kelvin</b></p>
+    <p><b>if we add value in Kelvin input field it will display equivalent value in celcuis and Farenheit</b></p>
+     
+    
+    <!-- Script for Temperature  -->
+    <script>
+        document.querySelector('#Parent_Div').addEventListener('input',(e)=>{
+            if (e.target.id=="Celcius") {
+                const celcius_temp = parseInt(document.getElementById("Celcius").value);
+                console.log(celcius_temp);
+
+                // Formula for Converting Celcius to Farenheit
+
+                /*
+                    °F = (°C * 9/5) + 32
+                */
+
+                const farenheit_temp = celcius_temp * 9/5 + 32;
+                console.log(farenheit_temp);
+                document.getElementById("Farenheit").value = farenheit_temp;
+                document.getElementById("Farenheit").setAttribute("readonly", true)
+
+                // Formula for Converting Celcius to Kelvin
+
+                /*
+                    K = C + 273.15
+                */
+
+                const kelvin_temp = celcius_temp + 273.15;
+                console.log(kelvin_temp);
+                document.getElementById("Kelvin").value = kelvin_temp;
+                document.getElementById("Kelvin").setAttribute("readonly", true)
+
+            }
+
+            else if (e.target.id=="Farenheit") {
+                const farenheit_temp = parseInt(document.getElementById("Farenheit").value);
+                console.log(farenheit_temp);
+
+                // Formula for Converting Farenheit to Celcius
+
+                /*
+                    5/9 * (F-32)
+
+                */
+
+                const celcius_temp = 5/9 * (farenheit_temp-32);
+                console.log(celcius_temp);
+                document.getElementById("Celcius").value = celcius_temp;
+                document.getElementById("Celcius").setAttribute("readonly", true)
+
+                // Formula for Converting Farenheit to Kelvin
+
+                /*
+                    K = (°F + 459.67) × 5/9
+                */
+                const kelvin_temp = (farenheit_temp + 459.67) * 5/9
+                document.getElementById("Kelvin").value = kelvin_temp;
+                document.getElementById("Kelvin").setAttribute("readonly", true)
+
+            }
+
+            else if(e.target.id = "Kelvin"){
+                const kelvin_temp = parseInt(document.getElementById("Kelvin").value);
+                console.log(kelvin_temp);
+
+                // Formula for Converting Kelvin to Celcius
+                
+                /*
+                    °C = K - 273.15
+                */
+
+                const celcius_temp = kelvin_temp - 273.15;
+                console.log(celcius_temp);
+                
+                document.getElementById("Celcius").value = celcius_temp;
+                document.getElementById("Celcius").setAttribute("readonly", true)
+
+                // Formula for Converting Kelvin to Farenheit
+
+                /*
+                    °F = K * 1.8 - 459.67
+                */
+                
+                const farenheit_temp = kelvin_temp * 1.8 - 459.67;
+                document.getElementById("Farenheit").value = farenheit_temp;
+                document.getElementById("Farenheit").setAttribute("readonly", true)
+
+            }
+            
+        })
+    </script>
+</body>
+</html>

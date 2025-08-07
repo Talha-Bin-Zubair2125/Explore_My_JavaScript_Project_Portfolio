@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Trailers</title>
+    <!-- Bootstrap Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <!-- Styling -->
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Parent Div -->
+  <div id="Parent_Div" class="position-relative container-fluid">
+    <!-- Background Image -->
+    <img src="./Images/bgimg.jpg" class="img-fluid w-100" style="z-index: 1;">
+
+    <!-- (Heading + Paragraph) -->
+    <div class="position-absolute text-white text-center w-100" style="top: 10px; left: 0; z-index: 2;">
+      <h1 class="display-5 fw-bold">Games That I Played</h1>
+      <p class="lead">These are some of the most immersive and unforgettable gaming experiences that I've enjoyed over the years. From samurai legends to dark knights, every title tells a unique story.</p>
+    </div>
+
+    <!-- Child Div 1 -->
+    <div id="Child_1" class="position-absolute text-white p-3" style="top: 120px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary" id="Btn_1">Ghost of Tsushima</button>
+     
+    </div>
+
+    <!-- Child Div 2 -->
+    <div id="Child_2" class="position-absolute text-white p-3" style="top: 180px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary"  id="Btn_2">Red Dead Redemption 2</button>
+    </div>
+
+    <!-- Child Div 3 -->
+    <div id="Child_3" class="position-absolute text-white p-3" style="top: 240px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary" id="Btn_3">Ghost of Yōtei</button>
+    </div>
+
+    <!-- Child Div 4 -->
+    <div id="Child_4" class="position-absolute text-white p-3" style="top: 300px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary"  id="Btn_4">Batman Arkham Origins</button>
+    </div>
+
+    <!-- Child Div 5 -->
+    <div  id="Child_5" class="position-absolute text-white p-3" style="top: 360px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary" id="Btn_5">Batman Arkham Asylum</button>
+    </div>
+
+    <!-- Child Div 6 -->
+    <div id="Child_6" class="position-absolute text-white p-3" style="top: 420px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary"  id="Btn_6">Batman Arkham City</button>
+ 
+    </div>
+
+    <!-- Child Div 7 -->
+    <div id="Child_7" class="position-absolute text-white p-3" style="top: 480px; left: 20px; z-index: 2;">
+      <button class="btn btn-primary"   id="Btn_7">Batman Arkham Knight</button>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('#Parent_Div').addEventListener('click',(e)=>{
+  
+        if (e.target.id=="Btn_1") {
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Ghost of Tsushima_ Director's Cut - Official PC Features Trailer.mp4");
+            document.getElementById("Child_1").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_2").disabled = true;
+            document.getElementById("Btn_3").disabled = true; 
+            document.getElementById("Btn_4").disabled = true; 
+            document.getElementById("Btn_5").disabled = true;
+            document.getElementById("Btn_6").disabled = true;
+            document.getElementById("Btn_7").disabled = true;
+
+            // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });
+            
+        }
+        else if (e.target.id=="Btn_2") {
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Red Dead Redemption 2 Launch Trailer.mp4");
+            document.getElementById("Child_2").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_1").disabled = true;
+            document.getElementById("Btn_3").disabled = true;
+            document.getElementById("Btn_4").disabled = true;
+            document.getElementById("Btn_5").disabled = true;
+            document.getElementById("Btn_6").disabled = true;
+            document.getElementById("Btn_7").disabled = true;
+               // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });
+        }
+        else if(e.target.id=="Btn_3"){
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Ghost of Yōtei - Announce Trailer ｜ PS5 Games.mp4");
+            document.getElementById("Child_3").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_1").disabled = true;
+            document.getElementById("Btn_2").disabled = true;
+            document.getElementById("Btn_4").disabled = true;
+            document.getElementById("Btn_5").disabled = true;
+            document.getElementById("Btn_6").disabled = true;
+            document.getElementById("Btn_7").disabled = true;
+               // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });
+            
+        }
+        else if(e.target.id=="Btn_4"){
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Batman： Arkham Origins Official Trailer.mp4");
+            document.getElementById("Child_4").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_1").disabled = true;
+            document.getElementById("Btn_2").disabled = true;
+            document.getElementById("Btn_3").disabled = true;
+            document.getElementById("Btn_5").disabled = true;
+            document.getElementById("Btn_6").disabled = true;
+            document.getElementById("Btn_7").disabled = true;
+               // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });            
+        }
+        else if(e.target.id=="Btn_5"){
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Batman： Arkham Asylum Launch Trailer.mp4");
+            document.getElementById("Child_5").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_1").disabled = true;
+            document.getElementById("Btn_2").disabled = true;
+            document.getElementById("Btn_3").disabled = true;
+            document.getElementById("Btn_4").disabled = true;
+            document.getElementById("Btn_6").disabled = true;
+            document.getElementById("Btn_7").disabled = true;
+               // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });
+        }
+        else if(e.target.id=="Btn_6"){
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Batman： Arkham City Launch Trailer.mp4");
+            document.getElementById("Child_6").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_1").disabled = true;
+            document.getElementById("Btn_2").disabled = true;
+            document.getElementById("Btn_3").disabled = true;
+            document.getElementById("Btn_4").disabled = true;
+            document.getElementById("Btn_5").disabled = true;
+            document.getElementById("Btn_7").disabled = true;
+               // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });
+        }
+        else if(e.target.id=="Btn_7"){
+            const new_element = document.createElement("video")
+            console.log(new_element);
+            new_element.setAttribute("src","./Game_Trailers/Batman： Arkham Origins Official Trailer.mp4");
+            document.getElementById("Child_7").appendChild(new_element);
+            new_element.autoplay = true;
+            new_element.controls = true;
+            new_element.style.position = "fixed";
+            new_element.style.top = "20%";
+            new_element.style.left = "20%";
+            new_element.style.width = "50vw";
+            new_element.style.height = "50vh";
+            new_element.style.backgroundColor = "black";
+            document.getElementById("Btn_1").disabled = true;
+            document.getElementById("Btn_2").disabled = true;
+            document.getElementById("Btn_3").disabled = true;
+            document.getElementById("Btn_4").disabled = true;
+            document.getElementById("Btn_5").disabled = true;
+            document.getElementById("Btn_6").disabled = true;
+               // Auto page reload when video ends
+            new_element.addEventListener("ended", () => {
+              window.location.reload();
+            });
+            
+        }
+        
+    })
+  </script>
+
+</body>
+</html>

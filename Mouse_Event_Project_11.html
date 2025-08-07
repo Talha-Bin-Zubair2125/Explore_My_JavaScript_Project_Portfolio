@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+    <!-- Styling -->
+    <style>
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            border: 2px solid black;
+            font-family: monospace;
+            font-size: x-large;
+            padding: 2rem;
+            align-items: center;
+            height:100vh;
+        }
+        #Child_1{
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Mouse Event</h1>
+        <!-- Child#1 -->
+        <div id="Child_1">
+            <!-- Mouse Position X -->
+            <p>Your Mouse Location at Position X is: <span id="Position_X"></span></p>
+        </div>
+        <div id="Child_2">
+            <!-- Mouse Position Y -->
+            <p>Your Mouse Location at Position Y is:<span id="Position_Y"></span> </p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#Parent').addEventListener('click',(e)=>{
+            const Position_X = e.clientX;
+            console.log(Position_X);
+            
+            const Position_Y = e.clientY;
+            console.log(Position_Y);
+
+            document.getElementById("Position_X").innerText= Position_X;
+            document.getElementById("Position_Y").innerText= Position_Y;
+        })
+    </script>
+</body>
+</html>

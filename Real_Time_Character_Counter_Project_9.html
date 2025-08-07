@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Character Counter</title>
+    <!-- Styling -->
+    <style>
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            font-family: monospace;
+            font-size: larger;
+            align-items: center; 
+        }
+        #Child_1{
+            width: 50%;
+            text-align: center;
+            padding: 2rem;
+        }
+         #Child_2{
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 1rem; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Real Time Character Counter</h1>
+        <!-- Child_1 --(input-type:text) -->
+        <div id="Child_1">
+            <textarea name="" id="Text_By_User" rows="10" cols="50" placeholder="Enter Your Text Here" maxlength="50"></textarea>
+        </div>
+        <!-- Child_2 -- for displaying limit  -->
+        <div id="Child_2">
+            <p>Maximun Characters are: <span id="Maximun"></span></p>
+            <p>Total Remaining Words are: <span id="Remaining_Words"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // This event fires when a key is pressed down. It fires for all keys, including alphanumeric keys, modifier keys (like Shift, Ctrl, Alt), and special keys (like arrow keys, Home, End). If a key is held down, the keydown event will repeatedly fire.
+        document.querySelector('#Parent').addEventListener('keydown',(e)=>{
+
+            const capture_typed = document.getElementById("Text_By_User").value.length;
+            console.log(capture_typed);
+            
+            const val =  document.getElementById("Text_By_User").getAttribute('maxlength')
+            document.getElementById("Maximun").innerText = val;
+            
+            const Remaining_Words = val - capture_typed;
+            document.getElementById("Remaining_Words").innerText = Remaining_Words;
+         
+            
+        });
+        
+        //when we refresh value is removed from the input field
+         window.onload = function () { 
+                document.getElementById("Text_By_User").value = ""; 
+        }
+      
+    </script>
+</body>
+</html>

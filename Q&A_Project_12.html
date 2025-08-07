@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q & A Section</title>
+    <style>
+        #Parent{
+            font-family: monospace;
+            font-size:x-large;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #Child_1{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem; 
+        }
+        #Heading_for_Question_1{
+            padding: 1rem;
+            background-color: darkgray;
+            border: 2px solid black;
+        }
+        #View_Answer_Q_1{
+            padding: 0.5rem;
+            background-color: green;
+            font-weight: bolder;
+            color: white;
+        }
+        #Close{
+            padding: 0.5rem;
+            background-color: green;
+            font-weight: bolder;
+            color: white;
+        }
+        #Answer_for_Question_1{
+            display: none;
+            border: 2px solid black;
+            padding: 1rem;
+        }
+        #Child_2{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem; 
+        }
+        #Heading_for_Question_2{
+            padding: 1rem;
+            background-color: darkgray;
+            border: 2px solid black;
+        }
+        #View_Answer_Q_2{
+            padding: 0.5rem;
+            background-color: green;
+            font-weight: bolder;
+            color: white;
+        }
+        #Answer_for_Question_2{
+            display: none;
+            border: 2px solid black;
+            padding: 1rem;
+        }
+        #Child_3{
+            display: flex;
+            flex-direction: column;
+            padding: 1rem; 
+        }
+        #Heading_for_Question_3{
+            padding: 1rem;
+            background-color: darkgray;
+            border: 2px solid black;
+        }
+        #View_Answer_Q_3{
+            padding: 0.5rem;
+            background-color: green;
+            font-weight: bolder;
+            color: white;
+        }
+        #Answer_for_Question_3{
+            display: none;
+            border: 2px solid black;
+            padding: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Q & A Section</h1>
+        <!-- Child#1 -->
+        <div id="Child_1">
+            <!-- Question -->
+            <div id="Heading_for_Question_1">
+                <span id="Question_1">What is the difference between == and === in JavaScript?</span>
+                <button id="View_Answer_Q_1">View Answer</button>
+                <button id="Close">Close</button>
+            </div>
+            <!-- Answer -->
+            <div id="Answer_for_Question_1">
+                <p> == checks for value equality, but allows type coercion (e.g., "5" == 5 is true).</p>
+                <p> === checks for strict equality (value and type), so "5" === 5 is false.</p>
+            </div>
+        </div>
+        <!-- Child#2 -->
+        <div id="Child_2">
+            <!-- Question -->
+            <div id="Heading_for_Question_2">
+                <span id="Question_2">What does async/await do in JavaScript?</span>
+                <button id="View_Answer_Q_2">View Answer</button>
+                 <button id="Close">Close</button>
+            </div>
+            <!-- Answer -->
+            <div id="Answer_for_Question_2">
+               <p>async makes a function return a Promise.</p>
+               <p>await pauses the execution inside an async function until the Promise resolves, making async code look synchronous
+               </p>
+               <pre><code>
+                async function fetchData() {
+                    let result = await fetch("https://api.example.com");
+                    let data = await result.json();
+                    console.log(data);
+                }
+                </code></pre>
+
+            </div>
+        </div>
+        <!-- Child#3 -->
+        <div id="Child_3">
+            <!-- Question -->
+            <div id="Heading_for_Question_3">
+                <span id="Question_3">What is NaN in JavaScript, and when do we get it?</span>
+                <button id="View_Answer_Q_3">View Answer</button>
+                <button id="Close">Close</button>
+            </div>
+            <!-- Answer -->
+            <div id="Answer_for_Question_3">
+              <p>NaN stands for "Not a Number".It occurs when an operation fails to return a valid number.</p>
+              <p>Code Snippet</p>
+             <pre><code>let result = "hello" - 5;  // NaN</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#Child_1').addEventListener('click',(e)=>{
+            if (e.target.id=="View_Answer_Q_1") {
+                document.getElementById("Answer_for_Question_1").style.display="block";
+                
+            }
+            else if (e.target.id=="Close") {
+                    document.getElementById("Answer_for_Question_1").style.display="none";
+            }
+        })
+        document.querySelector('#Child_2').addEventListener('click',(e)=>{
+            if (e.target.id=="View_Answer_Q_2") {
+                document.getElementById("Answer_for_Question_2").style.display="block";
+                
+            }
+            else if (e.target.id=="Close") {
+                    document.getElementById("Answer_for_Question_2").style.display="none";
+            }
+        })
+        document.querySelector('#Child_3').addEventListener('click',(e)=>{
+            if (e.target.id=="View_Answer_Q_3") {
+                document.getElementById("Answer_for_Question_3").style.display="block";
+                
+            }
+            else if (e.target.id=="Close") {
+                    document.getElementById("Answer_for_Question_3").style.display="none";
+            }
+        })
+    </script>
+</body>
+</html>

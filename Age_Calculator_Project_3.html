@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age_Calculator</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: larger;
+        }
+        #Parent_div{
+            /* border: 2px solid black; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            row-gap: 20px;
+            /* width: 50%; */
+        }
+        #Child_Div{
+            /* border: 2px solid black; */
+            padding: 20px;
+            width: 50%;
+            text-align: center;
+        }
+        #Input_field_1{
+            padding: 10px;
+            width: 50%;
+        }
+        #Child_Div_2{
+            /* border: 2px solid black; */
+            padding: 20px;
+            width: 50%;
+            text-align: center;
+        }
+        #Input_field_2{
+            padding: 10px;
+            width: 50%;
+        }
+        #Child_Div_3{
+            /* border: 2px solid black; */
+            padding: 20px;
+            width: 50%;
+            text-align: center;
+        }
+        #Input_field_3{
+            padding: 10px;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="Parent_div">
+        <!-- Child Div for forms -->
+         <h1>Age Calculator</h1>
+        <div id="Child_Div">
+            <form action="">
+                <!-- Input field -->
+                <label for="Input_field_1">
+                    Enter Birth Year
+                    <input type="text" name="" id="Input_field_1" placeholder="Enter Your Birth Year" onchange="for_Age_convertion()">
+                    <p>Your Birth Year is: <span id="Year_Display"></span></p>
+                </label>
+            </form>
+        </div>
+        <div id="Child_Div_2">
+            <form action="">
+                <!-- Input field -->
+                <label for="Input_field_2">
+                    Enter Month
+                    <input type="text" name="" id="Input_field_2" placeholder="Enter the Month" onchange="for_Age_convertion()">
+                    <p>Your Birthday Month is: <span id="Month_Display"></span> </p>
+                </label>
+            </form>
+        </div>
+        <div id="Child_Div_3">
+            <form action="">
+                <!-- Input field -->
+                <label for="Input_field_3">
+                    Enter Date
+                    <input type="text" name="" id="Input_field_3" placeholder="Enter the Date" onchange="for_Age_convertion()">
+                    <p>Your Birthday Date is: <span id="Date_Display"></span></p>
+                </label>
+            </form>
+        </div>
+        <!-- Displaying of Complete Date -->
+        <div id="display_complete_date">
+            <p>Your Date of Birthday is: <span id="Complete_date"></span></p>
+        </div>
+        <!-- Displaying of currrent date -->
+        <div id="Current_Dates">
+            <p>Current Date is: <span id="current_date"></span> </p>
+        </div>
+
+        <!-- Displaying of Age  -->
+        <p>My Age is: <span id="Age"></span></p>
+
+    </div>
+
+    <!-- JS -->
+    <script>
+
+
+       function for_Age_convertion(){
+        
+
+            // Script for Complete Date
+            const user_year =  document.getElementById("Input_field_1").value;
+            document.getElementById("Year_Display").innerText = user_year
+            const user_month =  document.getElementById("Input_field_2").value;
+            document.getElementById("Month_Display").innerText = user_month
+            const user_date =  document.getElementById("Input_field_3").value;
+            document.getElementById("Date_Display").innerText = user_date
+
+            // Script for Complete Date
+            document.getElementById("Complete_date").innerText = user_year+"/"+user_month+"/"+user_date;
+            // Current Date
+            const crnt_year_month_date = new Date();
+            // Method for Year
+            crnt_year_month_date.getFullYear();
+            // Method for Month
+            crnt_year_month_date.getMonth();
+            // Method for date
+            crnt_year_month_date.getDate();
+
+            document.getElementById("current_date").innerText = crnt_year_month_date.getFullYear() +"/"+ crnt_year_month_date.getMonth() +"/"+  crnt_year_month_date.getDate();
+
+            let year =  crnt_year_month_date.getFullYear() -  user_year   ;
+            
+            document.getElementById("Age").innerHTML = year;
+
+            // Additional Things 
+            let months = year * 12;
+            let days = year * 365.25;
+            let hours = days * 24;
+            let minutes = hours * 60;
+            let seconds = minutes * 60
+            console.log(year);
+            console.log("Age in months:", months);
+            console.log("Age in days:", days);
+            console.log("Age in hours:", hours);
+            console.log("Age in minutes:", minutes);
+            console.log("Age in seconds:", seconds);
+    }
+    for_Age_convertion();
+    
+    
+    /* Used Console.log() for debugging */
+
+
+
+    /*
+        // Script for Birth Year
+  
+        document.getElementById("Child_Div").addEventListener('input',(e)=>{
+           let b_year =  e.target.value;
+           console.log( b_year );
+           document.getElementById("Year_Display").innerHTML= b_year 
+           return b_year
+        });
+        
+    
+
+        // Script for Birthday Month
+        document.getElementById("Child_Div_2").addEventListener('input',(e)=>{
+           const month =  e.target.value;
+           console.log(month);
+           document.getElementById("Month_Display").innerText=month
+        });
+        // Script for Birthday Date
+        document.getElementById("Child_Div_3").addEventListener('input',(e)=>{
+           const date =  e.target.value;
+           console.log(date);
+           document.getElementById("Date_Display").innerText=date
+        }); 
+
+        JavaScript runs in top-to-bottom order.
+
+        If you write something outside of a function, like this:
+
+            const crnt_year_month_date = new Date();
+            console.log(crnt_year_month_date);
+            It is part of the global execution context, and runs immediately when the browser parses the script — just like an IIFE would.
+            
+
+    */
+
+    </script>
+</body>
+</html>
