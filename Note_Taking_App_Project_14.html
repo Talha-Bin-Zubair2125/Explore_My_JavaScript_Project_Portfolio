@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taking APP</title>
+    <!-- Styling -->
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+        #Main_Heading{
+            text-align: center;
+            font-size:x-large;
+        }
+        #Parent{
+            border: 2px solid black;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        
+        }
+        #Child_0{
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        #button{
+            display: flex;
+            justify-content: center;
+        }
+        #Add_More{
+            background-color: green;
+            color: white;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1 id="Main_Heading">Note Taking APP</h1>
+        <!-- Child#0 -->
+        <div id="Child_0">
+            <h1 id="Heading_for_Notes">Note#0</h1>
+            <textarea name="" id="TextArea_0" placeholder="Enter Your Text Here" cols="30"></textarea>
+        </div>
+    </div>
+
+    <!-- div for button -->
+    <div id="button">
+        <button id="Add_More">
+            Add More Notes
+        </button>
+    </div>
+
+    <script>
+        // For Div's
+        let i = 1;
+        // For Headings   
+        let j = 1;
+        // For Textarea
+        let k = 1;
+        document.getElementById("Add_More").addEventListener('mousedown',(e)=>{
+                // Created Div's
+                var new_element = document.createElement('div');
+                // new_element.style.border="2px solid black";
+                new_element.style.padding="1rem";
+                new_element.style.marginBottom="1rem";
+                new_element.setAttribute(`id`,"Child_"+`${i++}`);
+                console.log(document.querySelector('#Parent').appendChild(new_element)); 
+                // Created Headings with Text Content
+                var headings = document.createElement('h1');
+                headings.textContent = "Note#"+`${j++}`;
+                console.log( new_element.appendChild(headings) );
+                // Created Textarea where user enters the text
+                var text_element =document.createElement('textarea');
+                text_element.setAttribute('id',"TextArea_"+`${k++}`)
+                text_element.placeholder="Enter Your Text Here";
+                text_element.cols = "30";
+                console.log(new_element.appendChild(text_element));     
+        })
+    </script>
+</body>
+</html>
