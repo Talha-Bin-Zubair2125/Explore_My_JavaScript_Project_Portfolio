@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutiplication APP</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+        }
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        #Text_For_Question{
+            font-size: x-large;
+            padding: 2rem;
+        }
+        #Textfield_for_Answer{
+            padding: 2rem;
+        }
+        #Answer_Field{
+            padding: 1rem;
+            width: 50vw;
+        }
+        #Btn{
+            padding: 2rem;
+        }
+        #Submit_Answer{
+            padding: 1rem;
+            width: 50vw;
+            background-color: green;
+            color: white;
+            font-size: larger;
+        }
+        /* #Next_Answer{
+            padding: 1rem;
+            width: 50vw;
+            background-color: green;
+            color: white;
+            font-size: larger;
+        } */
+        #Score_Field{
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Mutiplication APP</h1>
+        <!-- Paragraph for Question -->
+        <div id="Text_For_Question">
+            <p>What is <span id="Number_1"></span>Mutiply By <span id="Number_2"></span>?</p>
+        </div>
+        <!-- Textfield for Entering Answer -->
+        <div id="Textfield_for_Answer">
+            <input type="text" name="" id="Answer_Field" placeholder="Enter Answer" autofocus>
+        </div>
+        <!-- Button for Submitting Answer -->
+        <div id="Btn">
+        <button id="Submit_Answer">Submit</button>
+        </div>
+        <!-- Field for Score -->
+        <p id="Score_Field">Your Score is: <span id="Score"></span></p>
+    </div>
+    
+    <script>
+            let score = 0;
+            let random_num_1;
+            let random_num_2;
+
+            function generateQuestion() {
+                random_num_1 = Math.floor(Math.random() * 10);
+                random_num_2 = Math.floor(Math.random() * 10);
+
+                document.getElementById('Number_1').innerText = random_num_1;
+                document.getElementById('Number_2').innerText = random_num_2;
+            }
+
+            generateQuestion();
+
+            document.querySelector('#Btn').addEventListener('click', () => {
+                let result = random_num_1 * random_num_2;
+                let user_answer = parseInt(document.getElementById('Answer_Field').value);
+
+                if (user_answer === result) {
+                    document.getElementById('Score').innerText = ++score;
+                } else {
+                    document.getElementById('Score').innerText = --score;
+                }
+
+                document.getElementById('Answer_Field').value = "";
+                generateQuestion(); // Next question
+            });
+
+    </script>
+</body>
+</html>
