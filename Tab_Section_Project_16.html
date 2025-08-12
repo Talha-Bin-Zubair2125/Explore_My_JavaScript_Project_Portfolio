@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Section</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        #Parent{
+            padding: 2rem;
+            display: flex;
+            font-family: monospace;
+        }
+        #Child_1{
+            width: 50vw;
+            padding: 2rem;
+        }
+        /* #Child_1_Img{
+            border: 2px solid black;
+        } */
+        #Content{
+            font-family: monospace;
+        }
+        #Child_2{
+            width: 50vw;
+            padding: 2rem;
+            display: none;
+        }
+        /* #Child_2_Img{
+            border: 2px solid black;
+        } */
+        #Content_Child_2{
+            font-family: monospace;
+        }
+        #Child_3{
+            width: 50vw;
+            padding: 2rem;
+            display: none;
+        }
+        /* #Child_2_Img{
+            border: 2px solid black;
+        } */
+        #Content_Child_3{
+            font-family: monospace;
+        }
+        #Buttons{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        /* #Btn_Wrapper{
+           margin: 0;
+           padding: 0;
+        }  */
+        #Btn_1{
+            padding: 0.5rem;
+            background-color: green;
+            color: white;
+            font-size: larger;
+            font-family: monospace;
+        }
+        #Btn_2{
+            padding: 0.5rem;
+            background-color: green;
+            color: white;
+            font-family: monospace;
+            font-size: larger;
+        }
+        #Btn_3{
+            padding: 0.5rem;
+            background-color: green;
+            color: white;
+            font-family: monospace;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <!-- Buttons -->
+    <div id="Buttons">
+        <div id="Btn_Wrapper">
+            <button id="Btn_1">Arthur Morgan</button>
+            <button id="Btn_2">Joker</button>
+            <button id="Btn_3">Batman</button>
+        </div>
+    </div>
+    <!-- Div -- Parent -->
+    <div id="Parent">
+        <!-- Child#1 -->
+        <div id="Child_1">
+            <!-- Image -->
+            <h1>Section#1</h1>
+            <div id="Child_1_Img">
+                <img src="./Images/arthur_morgan_red_dead_redemption_4k_hd_red_dead_redemption_2-3840x2160.jpg" alt="" width="100%">
+            </div>
+            <!-- Content -->
+            <div id="Content">
+                <h1>Arthur Morgan </h1>
+                <p>We’re Thieves In A World That Don’t Want Us No More.</p>
+            </div>
+        </div>
+        <!-- Child#2 -->
+        <div id="Child_2">
+            <h1>Section#2</h1>
+            <!-- Image -->
+            <div id="Child_2_Img">
+                <img src="./Images/dark-joker-thumb.jpg" alt="" width="100%">
+            </div>
+            <!-- Content -->
+            <div id="Content_Child_2">
+                <h1>Joker</h1>
+                <p>I’ve got nothing left to lose. Nothing can hurt me anymore. My life is nothing but a comedy.</p>
+            </div>
+        </div>
+        <!-- Child#3 -->
+        <div id="Child_3">
+            <h1>Section#3</h1>
+            <!-- Image -->
+            <div id="Child_3_Img">
+                <img src="./Images/f24d42f03f0800dcbdbd57750613af5b.jpg" alt="" width="100%">
+            </div>
+            <!-- Content -->
+            <div id="Content_Child_3">
+                <h1>Batman</h1>
+                <p>it's not who i am underneath but what i do that defines me</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#Buttons').addEventListener('click',(e)=>{
+            if (e.target.id == "Btn_1") {
+                const section_1 =  document.getElementById('Child_1');
+                section_1.style.display="inline-block";
+
+                const section_2 =  document.getElementById('Child_2');
+                section_2.style.display="none";
+
+                const section_3 =  document.getElementById('Child_3');
+                section_3.style.display="none";
+            }
+            else if (e.target.id == "Btn_2") {
+                const section_2 =  document.getElementById('Child_2');
+                section_2.style.display="inline-block";
+
+                const section_1 = document.getElementById('Child_1');
+                section_1.style.display="none";
+
+                const section_3 =  document.getElementById('Child_3');
+                section_3.style.display="none";
+
+            }
+            else if (e.target.id == "Btn_3") {
+                const section_3 =  document.getElementById('Child_3');
+                section_3.style.display="inline-block";
+
+                const section_1 = document.getElementById('Child_1');
+                section_1.style.display="none";
+
+                const section_2 =  document.getElementById('Child_2');
+                section_2.style.display="none";
+
+            }
+        })
+    </script>
+</body>
+</html>
