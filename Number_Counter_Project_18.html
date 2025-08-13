@@ -21,6 +21,10 @@
         #Child_1{
             padding: 2rem;
         }
+        #Counter_Value{
+            font-size: larger;
+            font-weight: bolder;
+        }
         #Child_2{
             padding: 2rem;
         }
@@ -71,6 +75,8 @@
             }
             else if (e.target.id == 'Reset') {
                 document.getElementById('Counter_Value').innerText = " ";
+                // Issue is that if i click on remove btn the previous value that is stored in i is displayed on counter box
+                i = 0;
             }
             else if (e.target.id == 'Remove') {
                 document.getElementById('Counter_Value').innerText = --i;
