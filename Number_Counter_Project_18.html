@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: monospace;
+            font-size: larger;
+            padding: 2rem;
+        }
+        #Child_1{
+            padding: 2rem;
+        }
+        #Child_2{
+            padding: 2rem;
+        }
+        #Add{
+            background-color: green;
+            color: white;
+            font-size: larger;
+            font-family: monospace;
+            padding: 0.5rem;
+        }
+        #Reset{
+            background-color: green;
+            color: white;
+            font-size: larger;
+            font-family: monospace;
+            padding: 0.5rem;
+        }
+        #Remove{
+            background-color: green;
+            color: white;
+            font-size: larger;
+            font-family: monospace;
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1>Number Counter</h1>
+        <!-- Child#1 for displaying Counter -->
+        <div id="Child_1">
+            <p id="Counter_Value"></p>
+        </div>
+        <!-- Buttons for add remove and reset -->
+        <div id="Child_2">
+            <button id="Add">Add</button>
+            <button id="Reset">Reset</button>
+            <button id="Remove">Remove</button>
+        </div>
+    </div>
+
+    <script>
+        let i = 0;
+        document.querySelector('#Child_2').addEventListener('click',(e)=>{
+            if (e.target.id == 'Add') {
+                document.getElementById('Counter_Value').innerText = ++i;
+            }
+            else if (e.target.id == 'Reset') {
+                document.getElementById('Counter_Value').innerText = " ";
+            }
+            else if (e.target.id == 'Remove') {
+                document.getElementById('Counter_Value').innerText = --i;
+                if (i == -1) {
+                    alert("Value Below -1 is not allowed");
+                    document.getElementById('Counter_Value').innerText = "0";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
