@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Countdown</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #Parent{
+            display: flex;
+            font-size: larger;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 2rem;
+        }
+        #Heading{
+            margin-bottom: 2rem;
+        }
+        #Wrapper{
+            display: flex;
+            justify-content: space-around;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent -->
+    <div id="Parent">
+        <h1 id="Heading">Countdown to Year 2026</h1>
+        <!-- Days -->
+        <div id="Wrapper">
+            <div id="Days">
+                <span id="Days_Remaining"></span> Days
+            </div>
+            <!-- Months -->
+            <div id="Months">
+                <span id="Months_Remaining"></span> Months
+            </div>
+            <!-- Hours -->
+            <div id="Hours">
+                <span id="Hours_Remaining"></span> Hours
+            </div>
+            <!-- Minutes -->
+            <div id="Minutes">
+                <span id="Minutes_Remaining"></span> Minutes
+            </div>
+            <!-- Seconds -->
+            <div id="Seconds">
+                <span id="Seconds_Remaining"></span> Seconds
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Countdown() {
+
+            /*
+                1️⃣ setTimeout
+                Runs the code only once after a specified delay.
+
+                You can think of it like:
+                "Wait for X milliseconds, then do this once."
+
+                Syntax:
+
+                setTimeout(() => {
+                console.log("Runs once after 2 seconds");
+                }, 2000);
+                Use case: When you need a delay before something happens.
+
+
+                2️⃣ setInterval
+                Runs the code repeatedly at a specified interval.
+
+                Think of it like:
+                "Every X milliseconds, keep doing this until I stop you."
+
+                Syntax:
+
+
+                let count = 0;
+                let timer = setInterval(() => {
+                count++;
+                console.log(`Runs every 2 seconds - Count: ${count}`);
+                if (count === 5) clearInterval(timer); // Stops after 5 times
+                }, 2000);
+                Use case: When you want repeating actions like timers, clocks, animations, etc.
+
+            */
+            
+            setInterval(()=>{
+
+           
+            // Date
+            const date = new Date();
+
+            //Get Current Year
+            console.log(date.getFullYear());
+            const year = date.getFullYear();
+            //Get Date
+            console.log(date.getDate());
+            const current_date = date.getDate();
+            //Get Month
+            console.log(date.getMonth());
+            const current_month = date.getMonth();
+            //Get Hours -- How Many Hours Past
+            console.log(date.getHours());
+            const current_hour = date.getHours();
+            //Get Minutes 
+            console.log(date.getMinutes());
+            const current_minute =  date.getMinutes();
+            //Get Seconds -- How Many Seconds Past 
+            console.log(date.getSeconds());
+            const seconds_past = date.getSeconds();
+
+            // 8760 hours in a Year
+            // 31,536,000 seconds in a Year
+            // 525600 minutes in a Year
+            
+            // Hours we spent till August is 5832
+            const hours_spent = 5832;
+            const hours_remaining_for_new_year =   8760 - hours_spent - current_hour ;
+            console.log(hours_remaining_for_new_year);
+            document.getElementById('Hours_Remaining').innerText = hours_remaining_for_new_year;
+
+            // Minutes we spent till August
+            const minutes_spent =349920;
+            const minutes_remaining_for_new_year = 525600 - minutes_spent - current_minute;
+            console.log(minutes_remaining_for_new_year);
+            document.getElementById('Minutes_Remaining').innerText = minutes_remaining_for_new_year;
+
+            // Seconds we spent till August
+            const sec_spent = 20995200;
+            const sec_remaining_for_new_year = 31536000 - 20995200 - seconds_past;
+            console.log(sec_remaining_for_new_year);
+             document.getElementById('Seconds_Remaining').innerText = sec_remaining_for_new_year;
+            
+            // Days Remaining
+
+            // days spent till August 
+            const days_spent = 243;
+            const total_days_in_year = 365;
+            const days_remaing = total_days_in_year - days_spent - current_date;
+            console.log(days_remaing);
+            document.getElementById('Days_Remaining').innerText = days_remaing;
+
+            // Months Remaining
+            const total_months_in_year = 12;
+            const months_remaing = total_months_in_year -  current_month;
+            console.log(months_remaing);
+             document.getElementById('Months_Remaining').innerText = months_remaing;
+         },1000)
+        }
+
+        // Calling of a function
+        Countdown();
+    </script>
+</body>
+</html>
