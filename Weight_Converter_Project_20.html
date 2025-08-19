@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+    <style>
+        #Parent_div{
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            padding: 2rem;
+        }
+        #Content{padding: 2rem; text-align: center;}
+        #Child_1{padding: 2rem;}
+        #Child_2{padding: 2rem;}
+
+        #Parent_div_2{
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            padding: 2rem;
+        }
+        #Content_2{padding: 2rem; text-align: center;}
+        #Parent_Child_1{padding: 2rem;}
+        #Parent_Child_2{padding: 2rem;}
+
+        #Option_Select{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            padding: 2rem;
+        }
+        #Choice_Select{
+            width: 50vw;
+            padding: 0.5rem;
+            font-size: medium;
+        } 
+    </style>
+</head>
+<body>
+    <div id="Option_Select">
+        <div id="Content_for_option">
+            <h1>Choose Your Option</h1>
+        </div>
+        <div id="Options">
+            <label for="Choice_Select"></label>
+            <select name="" id="Choice_Select">
+                <option value="">Choose Value</option>
+                <option value="pound_to_kg">Pound to Kg</option>
+                <option value="kg_to_pound">Kg to Pound</option>
+            </select>
+        </div>
+    </div>
+    <script>
+        // for option select we use change
+        document.querySelector('#Options').addEventListener('change',(e)=>{
+            if (e.target.value =="pound_to_kg") {
+                console.log(e.target);
+                document.getElementById('Parent_div').style.display="flex";
+            }
+            else if (e.target.value =="kg_to_pound") {
+                console.log(e.target);
+                document.getElementById('Parent_div_2').style.display="flex";
+            }
+        });
+    </script>
+    <!-- Parent div for wrapper-->
+    <div id="Parent_div">
+        <!-- Content Wrapper -->
+        <div id="Content">
+            <h1>Weight Converter</h1>
+            <p>Pound to Kg Converter</p>
+        </div>
+        <!-- Child div for Number field and Button -->
+        <div id="Child_1">
+            <input type="number" name="" id="Weight_1" style="width: 50vw;padding: 0.5rem;" onchange="getvaluefromtextfield1()">
+            <!-- <button style="padding: 0.5rem;background-color: green;font-weight: bolder;color: white;">Check Weight</button> -->
+        </div>
+        <div id="Child_2">
+            <p>Your Weight in kg is: <span id="Weight_in_Kg"></span>kg</p>
+        </div>
+    </div>
+    <!-- Parent div for wrapper-->
+    <div id="Parent_div_2">
+        <!-- Content Wrapper -->
+        <div id="Content_2">
+            <h1>Weight Converter</h1>
+            <p>Kg to Pound Converter</p>
+        </div>
+        <!-- Child div for Number field and Button -->
+        <div id="Parent_Child_1">
+            <input type="number" name="" id="Weight_2" style="width: 50vw;padding: 0.5rem;" onchange="getvaluefromtextfield2()">
+            <!-- <button style="padding: 0.5rem;background-color: green;font-weight: bolder;color: white;">Check Weight</button> -->
+        </div>
+        <div id="Parent_Child_2">
+            <p>Your Weight in pound is: <span id="Weight_in_Pound"></span>pound</p>
+        </div>
+    </div>
+
+    <script>
+        getvaluefromtextfield1 = () =>{
+           // weight in pounds
+           const val = parseInt(document.getElementById('Weight_1').value) 
+           console.log(val);
+
+            // formula for pound to kg 
+            // Kilograms = Pounds / 2.20462
+
+            const kg = parseInt(val / 2.20462);
+            console.log(kg);
+            
+            // Displaying Val
+
+            document.getElementById('Weight_in_Kg').innerText = kg;
+
+    
+        }
+
+        getvaluefromtextfield2 = () =>{
+            // weight in kg
+           const val =  parseInt(document.getElementById('Weight_2').value); 
+           console.log(val);
+
+           // formula for converting kg to pounds 
+           // Pounds = kilograms × 2.204623
+        
+           const pound = parseInt(val * 2.204623);
+           console.log(pound);
+           
+           // Displaying Val
+
+           document.getElementById('Weight_in_Pound').innerText = pound;
+
+        }
+    </script>
+</body>
+</html>
