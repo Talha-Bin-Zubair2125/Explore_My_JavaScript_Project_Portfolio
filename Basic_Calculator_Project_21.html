@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            font-family: sans-serif;
+        }
+        #Row_0{
+            padding: 2rem;
+        }
+        #Content_for_row_0{
+            display: flex;
+        }
+        #Row_1{
+            padding: 2rem;
+        }
+        #Content_for_row_1{
+            display: flex;
+            column-gap: 1rem;
+        }
+        button{
+            background-color: green;
+            width: 10vw;
+            font-family: sans-serif;
+            font-size: large;
+            color: white;
+            font-weight: bolder;
+        }
+        #Row_2{
+            padding: 2rem;
+        }
+        #Content_for_row_2{
+            display: flex;
+            column-gap: 1rem;
+        }
+        #Row_3{
+            padding: 2rem;
+        }
+        #Content_for_row_3{
+            display: flex;
+            column-gap: 1rem;
+        }
+        #Row_4{
+            padding: 2rem;
+        }
+        #Content_for_row_4{
+            display: flex;
+            column-gap: 1rem;
+        }
+        #Textfield{
+           padding: 0.5rem;
+           width: 50vw;    
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="Parent">
+        <h1>Basic Calculator</h1>
+        <div id="Row_0">
+        <!-- Textfield -->
+            <div id="Content_for_row_0">
+                <input type="text" name="" id="Textfield">
+            </div>
+        </div>
+        <!-- Row#1 -->
+        <div id="Row_1">
+            <!-- Buttons -->
+            <div id="Content_for_row_1">
+                <button id="7" value="7">7</button>
+                <button id="8" value="8">8</button>
+                <button id="9" value="9">9</button>
+                <button id="x" value="x">x</button>
+            </div>
+        </div>
+        <!-- Row#2 -->
+        <div id="Row_2">
+            <!-- Buttons -->
+            <div id="Content_for_row_2">
+                <button id="4" value="4">4</button>
+                <button id="5" value="5">5</button>
+                <button id="6" value="6">6</button>
+                <button id="-" value="-">-</button>
+            </div>
+        </div>
+        <!-- Row#3 -->
+        <div id="Row_3">
+            <div id="Content_for_row_3">
+                <button id="1" value="1">1</button>
+                <button id="2" value="2">2</button>
+                <button id="3" value="3">3</button>
+                <button id="+" value="+">+</button>
+            </div>
+        </div>
+        <!-- Row#4 -->
+        <div id="Row_4">
+            <div id="Content_for_row_4">
+                <button id="0" value="0">0</button>
+                <button id="." value=".">.</button>
+                <button id="/" value="/">/</button>
+                <button id="C" value="C">C</button>
+                <button id="=" value="=">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      const btn =   document.querySelectorAll('button');
+        
+      for (let index = 0; index < btn.length; index++) {
+           btn[index].addEventListener('click',(e)=>{
+                const btn_values = btn[index].textContent;
+                //console.log(btn_values);
+                
+                if (e.target.value == "C") {
+                    document.getElementById('Textfield').value = " "
+                }
+                else if (e.target.value == "=") {
+                    calculateValue();
+                }
+                else {
+                    console.log(btn_values);
+                    valueadd(btn_values);
+                }
+           })
+      }
+      calculateValue = () =>{
+        const text =  document.getElementById("Textfield");
+        // for debugging
+        console.log(text.value);
+        text.value = eval(text.value);
+      }
+       valueadd = (btn_values) =>{
+        const text =  document.getElementById("Textfield");
+        text.value += btn_values;
+        // for debugging
+        console.log(text.value);
+        
+      } 
+      
+      
+       
+    </script>
+</body>
+</html>
