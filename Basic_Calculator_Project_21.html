@@ -120,7 +120,6 @@
            btn[index].addEventListener('click',(e)=>{
                 const btn_values = btn[index].textContent;
                 //console.log(btn_values);
-                
                 if (e.target.value == "C") {
                     document.getElementById('Textfield').value = " "
                 }
@@ -128,6 +127,7 @@
                     calculateValue();
                 }
                 else {
+                    // btns on which i am clicking whatever value is present in btns is passed to valueadd()
                     console.log(btn_values);
                     valueadd(btn_values);
                 }
@@ -137,6 +137,7 @@
         const text =  document.getElementById("Textfield");
         // for debugging
         console.log(text.value);
+        //eval() is a js built-in function that takes string as input and evaluates it 
         text.value = eval(text.value);
       }
        valueadd = (btn_values) =>{
@@ -144,7 +145,6 @@
         text.value += btn_values;
         // for debugging
         console.log(text.value);
-        
       } 
       
       
