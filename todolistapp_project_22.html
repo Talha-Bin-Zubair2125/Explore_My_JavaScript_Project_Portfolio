@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List App</title>
+    <style>
+        #Parent{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: sans-serif;
+            font-size: medium;
+            padding: 2rem;
+        }
+        #Child_1{
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        #Textfield{
+            width: 50vw;
+            padding: 0.5rem;
+            font-family: sans-serif;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <!-- Parent Div -->
+    <div id="Parent">
+        <h1>To Do List APP</h1>
+        <!-- Child Div For Textfield -->
+        <div id="Child_1">
+            <input type="text" name="" id="Textfield" placeholder="Enter Task">
+        </div>
+        <!-- Div for Tasks -->
+        <div id="Child_2">
+
+        </div>
+    </div>
+    
+    <script>
+        // for Checkbox
+        let i = 0;
+        // for List
+        let j = 0;
+        // change event listener is used when we are done with our final typing 
+        document.querySelector('#Child_1').addEventListener('change',(e)=>{
+            const a = document.getElementById('Textfield');
+            // Used For Debugging
+            console.log(a.value);
+
+            // Created an Element
+            const b = document.createElement('li');
+            b.setAttribute('id',`List`+`${j++}`)
+            b.style.backgroundColor = "yellow";
+            b.style.color = "black";
+            b.style.fontFamily = "sans-serif";
+            b.style.fontSize = "medium";
+            b.style.width = "40vw";
+            b.style.padding = "2rem";
+            b.textContent = a.value;
+
+            // We Can Check State using .checked property
+            const c = document.createElement('input');
+            c.setAttribute('id',`Checkbox`+`${i++}`)
+            c.type = "checkbox";
+            
+            
+            // Apepended it into the div body
+            document.getElementById('Child_2').appendChild(b);
+            b.appendChild(c);
+
+            c.addEventListener('change',()=>{
+                if (c.checked) {
+                    b.style.textDecoration = "line-through";
+                    alert("Task#Completed")
+                }
+            });
+            // Used For Debugging
+            console.log(b);
+    
+        })
+    </script>
+</body>
+</html>
